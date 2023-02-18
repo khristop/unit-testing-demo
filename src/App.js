@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Search from './components/search/Search';
+import UserList from './components/userList/UserList';
 import { searchUserProfiles } from './services/githubService';
 
 function App() {
@@ -20,17 +21,7 @@ function App() {
     <main className="app wrapper">
       <h1 className='title'>GitHub Profile App</h1>
       <Search onSearch={searchProfiles} loading={loading}></Search>
-      <div className="user-list">
-        {userList && userList.map(user => (
-          <div className="user" key={user.id}>
-            <img src={user.avatar_url} alt={user.login} />
-            <div className="user-info">
-              <h2>{user.login}</h2>
-              <p>{user.bio}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <UserList users={userList}></UserList>
     </main>
   );
 }
