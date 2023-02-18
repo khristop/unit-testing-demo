@@ -17,8 +17,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>GitHub Profile App</h1>
+    <main className="app wrapper">
+      <h1 className='title'>GitHub Profile App</h1>
       <Search onSearch={searchProfiles} loading={loading}></Search>
       <div className="user-list">
         {userList && userList.map(user => (
@@ -31,7 +31,7 @@ function App() {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }
 

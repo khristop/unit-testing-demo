@@ -12,18 +12,22 @@ function Search({onSearch, loading}) {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
-
   return (
-    <form onSubmit={handleSearch}>
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={handleSearchChange}
-        placeholder="Search for a user"
-      />
-      <button type="submit" disabled={loading}>
-        {loading ? "Loading" : "Search"}
-      </button>
+    <form className="search-form" onSubmit={handleSearch}>
+      <div className="input-group">
+          <input
+            type="text"
+            value={searchQuery}
+            className="control"
+            onChange={handleSearchChange}
+            placeholder="Search for a user"
+          />
+      </div>
+      <div className="form-actions">
+        <button className="button-search" type="submit" disabled={loading}>
+          {loading ? "Loading" : "Search"}
+        </button>
+      </div>
     </form>
   );
 }
