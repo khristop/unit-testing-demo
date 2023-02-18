@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Search.css";
 
-function Search({onSearch}) {
+function Search({onSearch, loading}) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (event) => {
@@ -19,11 +19,17 @@ function Search({onSearch}) {
         type="text"
         value={searchQuery}
         onChange={handleSearchChange}
-        placeholder="Search for a user profile"
+        placeholder="Search for a user"
       />
-      <button type="submit">Search</button>
+      <button type="submit" disabled={loading}>
+        {loading ? "Loading" : "Search"}
+      </button>
     </form>
   );
+}
+
+Search.defaultProps = {
+  loading: false,
 }
 
 export default Search;
