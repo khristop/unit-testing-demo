@@ -15,7 +15,7 @@ const usersListMock = [
 ];
 
 describe("UserList component", () => {
-  it("renders a list of users", () => {
+  test("renders a list of users", () => {
     render(<UserList users={usersListMock} />);
 
     expect(screen.getAllByRole("img")).toHaveLength(2);
