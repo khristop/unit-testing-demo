@@ -8,13 +8,11 @@ function App() {
   const [userList, setUserList] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const searchProfiles = (hint) => {
+  const searchProfiles = async (hint) => {
     setLoading(true);
-    searchUserProfiles(hint)
-      .then(data => {
-        setUserList(data.items);
-        setLoading(false);
-      });
+    const data = await searchUserProfiles(hint);
+    setUserList(data.items);
+    setLoading(false);
   };
 
   return (

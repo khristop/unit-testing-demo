@@ -13,7 +13,7 @@ function Search({onSearch, loading}) {
     setSearchQuery(event.target.value);
   };
   return (
-    <form className="search-form" onSubmit={handleSearch}>
+    <form className="search-form" data-testid="search-form" onSubmit={handleSearch}>
       <div className="input-group">
           <input
             type="text"
